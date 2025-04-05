@@ -3,7 +3,7 @@ import { ref } from 'vue'
 import NavView from './components/NavView.vue'
 import NotificacionButton from './components/NotificacionButton.vue'
 import UserButton from './components/UserButton.vue'
-import BuscarButton from './components/buscarButton.vue'
+import BuscarButton from './components/BuscarButon.vue'
 
 const isOpen = ref(true)
 
