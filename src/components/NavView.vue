@@ -10,7 +10,7 @@ import reportesIcon from '@/assets/icons/reportes.svg'
 import settingsIcon from '@/assets/icons/settings.svg'
 import menuOpenIcon from '@/assets/icons/menu-open.svg'
 import menuCloseIcon from '@/assets/icons/menu-close.svg'
-import avatarIcon from '@/assets/icons/user.svg' // Ícono del usuario
+import avatarIcon from '@/assets/icons/user.svg'
 
 const props = defineProps({
   isOpen: Boolean

@@ -2,6 +2,8 @@
 import { ref } from 'vue'
 import NavView from './components/NavView.vue'
 import NotificacionButton from './components/NotificacionButton.vue'
+import UserButton from './components/UserButton.vue'
+import BuscarButton from './components/buscarButton.vue'
 
 const isOpen = ref(true)
 
@@ -21,15 +23,11 @@ const toggleMenu = () => {
       :class="isOpen ? 'ml-64' : 'ml-22'"
     >
       <!-- Header -->
-      <header class="h-16 bg-white shadow-md flex items-center justify-between px-4">
-        <input
-          type="text"
-          placeholder="Buscar..."
-          class="px-4 py-2 border rounded-lg focus:outline-none"
-        />
+      <header class="h-16 bg-white shadow-md flex items-center justify-between px-2">
+        <BuscarButton/>
         <div class="flex items-center gap-4">
           <NotificacionButton />
-          <img src="https://i.pravatar.cc/32" class="rounded-full" />
+          <UserButton/>
         </div>
       </header>
 
@@ -39,4 +37,10 @@ const toggleMenu = () => {
       </main>
     </div>
   </div>
+  <footer>
+      <small class="mt-10 text-black">
+        <h1 class="text-lg font-semibold">Contador en Vue</h1>
+        <p>Desarrollado por Joham Osorio</p>
+      </small>
+    </footer>
 </template>

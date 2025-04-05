@@ -15,10 +15,7 @@
           Buscar
         </button>
       </div>
-      <small class="mt-5 text-black">
-        <h1 class="text-lg font-semibold">Contador en Vue</h1>
-        <p>Desarrollado por Joham Osorio</p>
-      </small>
+      
     </div>
   </section>
 </template>
