@@ -13,26 +13,31 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView,
+      meta: { title: 'home' },
     },
     {
       path: '/ventas',
       name: 'ventas',
       component: VentasView,
+      meta: { title: 'Ventas' },
     },
     {
       path: '/settings',
       name: 'settings',
       component: SettingsView,
+      meta: { title: 'Ajustes' },
     },
     {
       path: '/reportes',
       name: 'reportes',
       component: ReportesView,
+      meta: { title: 'Reportes' },
     },
     {
       path: '/inventario',
       name: 'inventario',
       component: InventarioView,
+      meta: { title: 'Inventario' },
     },
    
   ],

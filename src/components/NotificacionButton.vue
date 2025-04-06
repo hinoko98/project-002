@@ -37,9 +37,9 @@ const markAllAsRead = () => {
   <div ref="notiMenuRef" class="relative">
     <button
       @click="toggleDropdown"
-      class="relative hover:bg-gray-100 p-2 rounded-full transition"
+      class="relative hover:bg-gray-100 rounded-full transition"
     >
-      <img :src="notificacionIcon" alt="Notificación" class="w-6 h-6" />
+      <img :src="notificacionIcon" alt="Notificación" class="w-8 h-8" />
       <!-- Si hay nuevas -->
       <span
         v-if="unreadCount > 0"
@@ -53,7 +53,7 @@ const markAllAsRead = () => {
 
     <div
       v-if="mostrarDropdown"
-      class="absolute right-0 mt-2 w-72 bg-white rounded-xl shadow-xl border z-50"
+      class="absolute right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border z-50"
     >
       <div class="p-4 border-b font-semibold text-gray-700 flex justify-between">
         <span>Notificaciones</span>

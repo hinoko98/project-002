@@ -1,22 +1,17 @@
 <script setup>
 import { useRoute } from 'vue-router'
 
-
 // Íconos
 import homeIcon from '@/assets/icons/home.svg'
 import ventasIcon from '@/assets/icons/ventas.svg'
 import inventarioIcon from '@/assets/icons/inventario.svg'
 import reportesIcon from '@/assets/icons/reportes.svg'
 import settingsIcon from '@/assets/icons/settings.svg'
-import menuOpenIcon from '@/assets/icons/menu-open.svg'
-import menuCloseIcon from '@/assets/icons/menu-close.svg'
 import avatarIcon from '@/assets/icons/user.svg'
 
 const props = defineProps({
   isOpen: Boolean
 })
-
-const emit = defineEmits(['toggleMenu'])
 
 const route = useRoute()
 
@@ -29,10 +24,6 @@ const menuItems = [
 ]
 
 const userName = 'Joham Osorio'
-
-const toggleMenu = () => {
-  emit('toggleMenu')
-}
 
 </script>
 
@@ -48,14 +39,6 @@ const toggleMenu = () => {
         <img :src="avatarIcon" alt="Usuario" class="w-8 h-8 rounded-full" />
         <span v-if="isOpen" class="text-gray-800 font-semibold">{{ userName }}</span>
       </div>
-
-      <!-- Botón de abrir/cerrar (fuera del menú) -->
-      <button 
-        @click="toggleMenu"
-        class="absolute -right-6 top-1/2 transform -translate-y-1/2 bg-gray-200 p-2 rounded-full shadow-md transition hover:bg-gray-300"
-      >
-        <img :src="props.isOpen ? menuCloseIcon : menuOpenIcon" class="w-6 h-6" />
-      </button>
     </div>
 
     <!-- Ítems del menú -->
