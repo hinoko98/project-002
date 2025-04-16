@@ -4,7 +4,8 @@ import SettingsView from '../views/SettingsView.vue'
 import VentasView from '../views/VentasView.vue'
 import ReportesView from '../views/ReportesView.vue'
 import InventarioView from '../views/InventarioView.vue'
-
+import AgregarProductoView from '@/views/inventario/AgregarProductoView.vue'
+import AgregarCategoriaView from '@/views/inventario/AgregarCategoriaView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,18 @@ const router = createRouter({
       name: 'inventario',
       component: InventarioView,
       meta: { title: 'Inventario' },
+    },
+    {
+      path: '/inventario/agregarproducto',
+      name: 'agregarproducto',
+      component: AgregarProductoView,
+      meta: { title: 'Agregar Nuevo Producto' },
+    },
+    {
+      path: '/inventario/agregarcategoria',
+      name: 'agregarcategoria',
+      component: AgregarCategoriaView,
+      meta: { title: 'Agregar Nueva Categoria' },
     },
    
   ],

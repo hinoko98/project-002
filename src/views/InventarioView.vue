@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import axios from 'axios'
 
 // Variables reactivas
 const productos = ref([])
@@ -9,6 +10,11 @@ const buscarTexto = ref('')
 
 // Simular carga inicial de datos (temporal)
 onMounted(() => {
+  axios.get('http://localhost:3000/api/productos')
+  .then(res => productos.value = res.data)
+  axios.get('http://localhost:3000/api/productos/categorias')
+  .then(res => categorias.value = ['Todos', ...res.data.map(c => c.nombreCategoria)])
+  
   productos.value = [
     { id: 1, nombre: 'Producto A', categoria: 'Lácteos' },
     { id: 2, nombre: 'Producto B', categoria: 'Carnes' }
@@ -38,22 +44,45 @@ onMounted(() => {
         <option v-for="cat in categorias" :key="cat" :value="cat">{{ cat }}</option>
       </select>
 
-      <button class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+      <router-link to="/inventario/agregarproducto" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
         ➕ Agregar producto
-      </button>
+      </router-link>
     </div>
 
+    
     <div class="mt-4">
       <h2 class="text-lg font-semibold">Lista de productos</h2>
-      <ul class="space-y-2 mt-2">
-        <li
-          v-for="prod in productos"
-          :key="prod.id"
-          class="border rounded-md p-3 bg-white shadow-sm"
-        >
-          {{ prod.nombre }} — {{ prod.categoria }}
-        </li>
-      </ul>
+      <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-md">
+        <thead class="bg-gray-100 text-gray-700 text-left">
+          <tr>
+            <th class="px-4 py-3 border-b">ID</th>
+            <th class="px-4 py-3 border-b">Codigo de Barra</th>
+            <th class="px-4 py-3 border-b">Categoria</th>
+            <th class="px-4 py-3 border-b">Descripcion producto</th>
+            <th class="px-4 py-3 border-b">Cantidad</th>
+            <th class="px-4 py-3 border-b">Precio Inicial</th>
+            <th class="px-4 py-3 border-b">Precio Final</th>
+            <th class="px-4 py-3 border-b">Fecha de registro</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="producto in productos"
+            :key="producto.id"
+            class="hover:bg-blue-50 transition"
+          >
+            <td class="px-4 py-3 border-b">{{ producto.id }}</td>
+            <td class="px-4 py-3 border-b">{{ producto.codigo  }}</td>
+            <td class="px-4 py-3 border-b">{{ producto.categoria }}</td>
+            <td class="px-4 py-3 border-b">{{ producto.nombre }}</td>
+            <td class="px-4 py-3 border-b">{{ producto.cantidad }}</td>
+            <td class="px-4 py-3 border-b">${{ producto.precioinical.toLocaleString() }}</td>
+            <td class="px-4 py-3 border-b">${{ producto.preciofinal.toLocaleString() }}</td>
+            <td class="px-4 py-3 border-b">${{ new Date().toLocaleDateString() }}</td>
+            
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </template>
